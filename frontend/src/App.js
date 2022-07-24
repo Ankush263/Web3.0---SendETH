@@ -34,13 +34,14 @@ function App() {
 
   //By this function you can send ether to another account
   const sendEth = async () => {
-    
+
     const contract = new ethers.Contract(contractAddress, abi, signer)
 
-    // console.log("Amount: ", amount)
-    // console.log("Account Address: ", accountAddress)
     try{
-
+      await contract.send(
+        accountAddress,
+        {value: ethers.utils.parseEther(`${amount}`)}
+      )
       setAccountAddress("")
       setAmount(0)
     }catch(error){
