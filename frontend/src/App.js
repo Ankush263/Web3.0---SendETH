@@ -46,7 +46,6 @@ function App() {
       document.querySelector(".btn").disabled = false
       setAccountAddress("")
       setAmount(0)
-      console.log(accountAddress)
     }catch(error){
       console.log(error)
     }
