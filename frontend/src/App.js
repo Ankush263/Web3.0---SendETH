@@ -11,7 +11,7 @@ function App() {
   const [accountAddress, setAccountAddress] = useState("")    //This stores the Account address which the user typed in
   const [amount, setAmount] = useState(0)   //This stores the value which the user want to send
 
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+  const contractAddress = accountAddress
   const abi = ABI.abi
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   const signer = provider.getSigner()
@@ -36,14 +36,17 @@ function App() {
   const sendEth = async () => {
 
     const contract = new ethers.Contract(contractAddress, abi, signer)
+    document.querySelector(".btn").disabled = true
 
     try{
       await contract.send(
         accountAddress,
         {value: ethers.utils.parseEther(`${amount}`)}
       )
+      document.querySelector(".btn").disabled = false
       setAccountAddress("")
       setAmount(0)
+      console.log(accountAddress)
     }catch(error){
       console.log(error)
     }
