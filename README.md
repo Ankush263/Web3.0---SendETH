@@ -40,7 +40,7 @@ Please install or have installed the following:
 * [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn) Chrome extension installed in your browser
 * [Hardhat](https://hardhat.org/getting-started/) For scripts and tests
 
-After going through all the installation and setup steps, you'll need to deploy the smart contract to the hardhat network by running: 
+After going through all the installation and setup steps, you'll need to download all the dependencies by running: 
   ```sh
    cd SendETH
    npm install
